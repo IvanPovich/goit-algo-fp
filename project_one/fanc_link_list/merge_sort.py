@@ -75,3 +75,34 @@ def merge(left:LinkedList, right:LinkedList) -> LinkedList:
         right_current = right_current.next
 
     return merged
+
+def merge_sorted_list(first_li: LinkedList, second_li: LinkedList) -> LinkedList:
+    new_list = LinkedList()
+    first_current = first_li.head
+    second_current = second_li.head
+    tail = None
+
+    while first_current is not None or second_current is not None:
+        if first_current is None:
+            new_node = Node(second_current.data)
+            second_current = second_current.next
+
+        elif second_current is None or first_current.data <= second_current.data:
+            new_node = Node(first_current.data)
+            first_current = first_current.next
+        elif first_current.data <= second_current.data:
+            new_node = Node(first_current.data)
+            first_current = first_current.next
+
+        else:
+            new_node = Node(second_current.data)
+            second_current = second_current.next
+
+        if new_list.head is None:
+            new_list.head = new_node
+            tail = new_node
+        else:
+            tail.next = new_node
+            tail = new_node
+
+    return new_list

@@ -1,6 +1,6 @@
 from linked_list.linked_list import LinkedList
 from fanc_link_list.reverse_list import reverse_list
-from fanc_link_list.merge_sort import merge_sort, merge
+from fanc_link_list.merge_sort import merge_sort, merge_sorted_list
 
 
 if __name__ == "__main__":
@@ -28,19 +28,20 @@ if __name__ == "__main__":
     llist.print_list()
 
     print("\nЗАВДАННЯ ТРЕТЄ: ")
-    print("Оригінальні списки:")
-    list_first = LinkedList()
-    list_first.insert_at_end(1)
-    list_first.insert_at_end(2)
-    list_first.insert_at_end(3)
-    list_first.insert_at_end(4)
-    list_first.insert_at_end(5)
-    list_second = LinkedList()
-    list_second.insert_at_end(6)
-    list_second.insert_at_end(7)
-    list_second.insert_at_end(8)
-    list_second.insert_at_end(9)
+   # Створимо два відсортовані списки
+    print("Перший список:")
+    first_list = LinkedList()
+    first_list.insert_at_end(1)
+    first_list.insert_at_end(3)
+    first_list.insert_at_end(5)
+    first_list.print_list()
+    print("\nДругий список:")
+    second_list = LinkedList()
+    second_list.insert_at_end(2)
+    second_list.insert_at_end(4)
+    second_list.insert_at_end(6)
+    second_list.print_list()
+    merged_list = merge_sorted_list(first_list, second_list)
 
-    new_list = merge(list_first, list_second)
-    print("\nДва відсортовані списки злиті в один відсортований:")
-    new_list.print_list()
+    print("\nНовий злитий в один, відсортований список:")
+    merged_list.print_list()
