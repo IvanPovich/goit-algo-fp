@@ -1,4 +1,6 @@
 from binary_tree import *
+from collections import deque
+import matplotlib.colors as mcolors
 
 def bfs(tree_root):
     queue = deque([tree_root])

@@ -2,9 +2,6 @@ import uuid
 
 import networkx as nx
 import matplotlib.pyplot as plt
-import matplotlib.colors as mcolors
-from collections import deque
-
 
 class Node:
   def __init__(self, key, color="skyblue"):
